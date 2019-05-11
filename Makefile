@@ -14,8 +14,7 @@ build: clean
 	docker build -t $(IMAGE) .
 	docker run \
 	  --name=$(CONTAINER) \
-	  --cap-add SYS_ADMIN \
-	  --security-opt apparmor:unconfined \
+	  --privileged \
 	  --mount type=bind,source=${PWD},target=/usr/share/archiso/configs/releng/out \
 	  $(IMAGE)
 
