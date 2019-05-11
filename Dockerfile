@@ -3,7 +3,7 @@ MAINTAINER Julien Nicoulaud <julien.nicoulaud@gmail.com>
 
 RUN pacman-key --init && \
     pacman-key --populate archlinux && \
-    pacman --noconfirm -Sy reflector && \
+    pacman --noconfirm -Sy reflector rsync && \
     reflector --verbose --latest 20 --sort rate --save /etc/pacman.d/mirrorlist && \
     pacman --noconfirm -Syu && \
     pacman --noconfirm -Sy --needed \
