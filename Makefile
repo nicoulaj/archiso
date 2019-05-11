@@ -11,12 +11,14 @@ clean:
 	docker image rm $(IMAGE) || true
 
 build: clean
-	docker build -t $(IMAGE) .
-	docker run \
-	  --name=$(CONTAINER) \
-	  --privileged \
-	  --mount type=bind,source=${PWD},target=/usr/share/archiso/configs/releng/out \
-	  $(IMAGE)
+	( \
+		docker build -t $(IMAGE) . && \
+		docker run \
+		--name=$(CONTAINER) \
+		--privileged \
+		--mount type=bind,source=${PWD},target=/usr/share/archiso/configs/releng/out \
+		$(IMAGE) \
+	) | tee build.log
 
 test:
 	VBoxManage controlvm $(VM) poweroff || true

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # remove packages
-sed -i '|grml-zsh-config|d' packages.x86_64
+sed -i '/grml-zsh-config/d' packages.x86_64
 
 # add packages
 cat << EOF >> packages.x86_64

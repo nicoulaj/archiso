@@ -5,12 +5,17 @@ language: minimal
 services:
   - docker
 
+env:
+  global:
+  - secure: nKTTuzV056RkYy6o/17KxBrLnoS0u623pcWKPWqEeicL5VgJmHtl8bPfGAM+NWm8thu+HIuoxl9Mk2AZxZNrotR0a+e0bu4TMvSHDTH+Z1EA5Xd+Mp/0Sgje+nJUCN2fiw7B3ap6O+Eg6m8V/qoiCajxGGCtS8vlls3MndLgnI0jF3VNUc0nytqcQK01v/y3Tr6D7eni6VUKP+hNe1p1vWl/J9JNAJVG64LkY+6Q7eiXZXmUIt5wUhVF22CkNHy409v+ot3/HB6eqIM/KC7C1g0rWqJwA1XnU03ShMncNckI0aJ+tPNFqNpLgiIpLMc+Y+DTMiAsLgmAGhfsEa2o4ZUbXpTLU7cWpmqmlvXupinpdKA2A2pg1huaSWqqcdxtS62estt1+7fYYhL26kFYZD1RpQ+Af3r9J5sSSIV4IafiyxZXCTB4pyCHdiKB20CZglPUYceYigijE15/jUwtQkXG+tJyClUsLBsYAtIXEtVDJy3c+t9y7T/OkUaBCnbV+i4ZHzid6e9GGNcfPlH7XgPOI7RN5vqvw/zOOhikSGNUFUTJH0XBtyrvK8S7RlXysqOskDlVJHH0sXakiSnPEhbF5l75yHmEMmc8qH/KfZseNDDqiHhQCwJFv1LXhXejL80nVgGlBvb63XxHiMmCd3iafreY/cBDFmbA812MWFo=
+  - secure: h3wszC9A/HeATWWjGJ5+wDoo6t0rJukAyoa6S09SCWU1BvCqXBzxl6rno0CJqGsqTKgIE8bvKwGHMtl3FCdcs9YpSfktRkdjkwDi0tNtYfB4kjTSBhpd5vCqUX96bK90g8Y7kJCvTyy/H+I+DqVZN4ChYf61GI63lPvIQVcceHqi2Tw8qVum4b19fUSnZtOuD4DrEwni4rxyIi0zq7svpvPKoZNGAXlqCTdbtEs9mpU6StvHlSq+UdqgU+xGwicKEMq3m/aNZIHFlhtFhl+AqQIwHSxEF0WoQ7KI88GdgDSzQcMX7vu5XR1k3w1s5vfQaS0j95sSDdUNd3bMUEYchGCSaYXayoBhJdeYRvqbGSbjoIIe48Dp8FblpbB81W9GXkGzTpYSQiGV+0RYK+p6cw+0r0OdJqJJpC1pd6LNXzVqEQ2Iga6tWtWTSTMiCCom4F6Ji9x4b8noKoRUkjR8XjAHWhfHiJRrMpylKN0Rdb2jJIZksfANejfwGBq5yB7lAwfENWZY5kiW6T7P8lu0xBLlUiv6vZXfaoCS9VX3xajEUkn3Bo+bbHUZt3J0HBMoio4YSiPct+fmTRqAOPQjYEL6Ysm4IXQ5wWvGnbq3xfjBtV6b36coPQX69gLKpm6PfsPhfYifh46Etv6WtOYJ+sb9M6EMLOSOslMBCtTddTA=
+
 script: make build
 
 before_deploy:
-  - git config --local user.name "nicoulaj-archiso-ci"
-  - git config --local user.email "julien.nicoulaud+github-nicoulaj-archiso-ci@gmail.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y-%m-%d_%H-%M-%S')
+  - git config --local user.name "${TAG_USER_NAME}"
+  - git config --local user.email "${TAG_USER_MAIL}"
+  - export TRAVIS_TAG=$(date +'%Y-%m-%d_%H-%M-%S')
   - git tag $TRAVIS_TAG
 
 deploy:
@@ -19,6 +24,7 @@ deploy:
     secure: SAJs8lpQBhFqmK/47MUhABD70R+lz+jkjeiewrvayPW1RYDSuZRSE2SxVSeEumSkOPlfVAEe3f3pIVmMODgGKf6EVpuU7ssCwXPb/VT5tWoqI+E3Wag3LlAherWI9hxET5m9VQmHeAGnKMZ3SqTb9YQrCPOAtoMWk7lwHDNrbRN257cPZUL9Wb7sQNhvFmq6/knbThx36Qns2WMlqh8huJVuZnny4AYs4N1dZAuixnz5ympbqK1eVc9Uf4qtNsAvSKTSf5Ar7I85jBTFXZae7K+/bjAOMiz2K8iVOfXXwJxE8gbhuF/vh4LpO/25NHePWMXpPN4VeqehtIto/fGJpjv7m9o58d2oEjXvGvIoa6RXV2tY63VdtqbV8KBEJNX8kqloCk3qKqCxp3ufbzZiNUqMlR3KfNmw4SGz7bLBsazMQ0DPc22SR6dNmsgy/OsPAQ4crujqS2K5rU3ovwq0/Wjl00JPbDEorVpcb9h3YNS/f7Pz3LCs1yDVNlWMX3UeOpFOQINoOm3woGYkE9vvcY2T3+f46f5hxyQx+R/p1f7qIwKZLA4fGi+FTw8v4VYrxElG/mkNVuItfxybbdFPlXyhnBFh4xTAespc8uX8duH9FOfSOOupTDytgJKBm0E4Fr6u+OCTME6dM20PbqT65+0ttNeQQAC3rQcsBEFx8Xk=
   skip_cleanup: true
   file_glob: true
+  file: "build.log"
   file: "*.iso"
   body: $TRAVIS_BUILD_WEB_URL
   on:
