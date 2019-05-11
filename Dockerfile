@@ -1,9 +1,6 @@
 FROM archlinux/base
 MAINTAINER Julien Nicoulaud <julien.nicoulaud@gmail.com>
 
-RUN ls -l /dev
-RUN ls -l /dev/shm
-
 RUN pacman-key --init && \
     pacman-key --populate archlinux && \
     pacman --noconfirm -Sy reflector rsync && \

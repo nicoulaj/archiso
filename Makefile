@@ -15,7 +15,8 @@ build: clean
 	docker run \
 	  --name=$(CONTAINER) \
 	  --privileged \
-	  --mount type=bind,source=/dev/shm,target=/dev/shm \
+	  --volume /dev/shm \
+	  --tmpfs /dev/shm \
 	  --mount type=bind,source=${PWD},target=/usr/share/archiso/configs/releng/out \
 	  $(IMAGE)
 
