@@ -8,7 +8,6 @@ links
 dfc
 ncdu
 fzf
-rip-grep
 ack
 i7z
 htop
@@ -33,3 +32,6 @@ sed -i 's|isouser|nicoulaj|' airootfs/etc/systemd/system/getty@tty1.service.d/au
 
 # set keymap
 echo KEYMAP=fr > airootfs/etc/vconsole.conf
+
+# dotfiles
+curl -Ls https://github.com/nicoulaj/dotfiles/archive/master.tar.gz | tar xvz -C airootfs/root/ --strip-components=1
