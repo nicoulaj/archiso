@@ -1,0 +1,32 @@
+sudo: required
+
+services:
+  - docker
+
+script: make build
+
+before_deploy:
+  - git config --local user.name "nicoulaj-archiso-ci"
+  - git config --local user.email "julien.nicoulaud+github-nicoulaj-archiso-ci@gmail.com"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
+
+deploy:
+  provider: releases
+  api_key:
+     secure: "QuE16m8V6GNhw5SgpqV9zXeWztoYpcq6QLvNt1Bt5IXkWMTtCKWLg6kwWKe1eOinY2FiVT4K0Y74j43tvyioCOMR3NZ99ItfTQJf11ZaxzTcF2sZpBoP7yEBQxPc6XWSTmQ0d6iJZqagW7K8FDXHfRtWOMxBUgo2Lf6b0A2W8MsCULVF00fHKHWd26OS74aZTKmPN2QzZQZGrKFb9jfxyMXG5lzPUiauxboHbvTGMnTlMAKkZVdXJSkDPZBl5WMORnkUyib5klNI4ylkHVmnPRfESppkTPemjtU3ySfnFD5lQOw5jwzABLSNDv0vp6Z1EQstKZ3t2X7RRBQ4M/o7iks6hFXgYQ59y6uti5IAq9chRuCAHq+Q2Nv7MTKnnziRgjqlR26BredfA5QyVyOYJRwtZxeVo9s0Tsg3EuzfU02Uv1Fw2L8ydyi0Kn682wsv7ffPSKtjJnXRhtpCcVXdaTjfgxTyT4ElsPN4x8kgv4H+rVc2xcNoFEn0A/uyIk/ncwPtaMhySfEArHGIz8+vbVtOlWquM+JopsXKbjIyf9zlhiQ/U8/mCA0/djGWLJFVva4dBM4ewECBu5ogCOGoFKLmLCTRsoN+KAaG5UttcYleBgA76x89KSH2G8OzB/CZfvj0uLbzFfyM85VCuDQ2mkAQBokVhBTmSwjVGl1Q2wg="
+  file_glob: true
+  file: *.iso
+  skip_cleanup: true
+
+notifications:
+  email: false
+  irc:
+    channels:
+    - "chat.freenode.net#nicoulaj"
+    on_success: never
+    on_failure: change
+    on_start: never
+    use_notice: true
+    template:
+    - "%{repository}/%{branch}#%{build_number}: %{message} | changes : %{compare_url} | build : %{build_url}"
