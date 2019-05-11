@@ -18,14 +18,6 @@ build: clean
 	  --volume /dev/shm \
 	  --tmpfs /dev/shm \
 	  --mount type=bind,source=${PWD},target=/usr/share/archiso/configs/releng/out \
-	  $(IMAGE) \
-	  /bin/bash -c "ls -l /dev; ls -l /dev/shm"
-	docker run \
-	  --name=$(CONTAINER) \
-	  --privileged \
-	  --volume /dev/shm \
-	  --tmpfs /dev/shm \
-	  --mount type=bind,source=${PWD},target=/usr/share/archiso/configs/releng/out \
 	  $(IMAGE)
 
 test:
