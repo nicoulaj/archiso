@@ -21,19 +21,21 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-     secure: "QuE16m8V6GNhw5SgpqV9zXeWztoYpcq6QLvNt1Bt5IXkWMTtCKWLg6kwWKe1eOinY2FiVT4K0Y74j43tvyioCOMR3NZ99ItfTQJf11ZaxzTcF2sZpBoP7yEBQxPc6XWSTmQ0d6iJZqagW7K8FDXHfRtWOMxBUgo2Lf6b0A2W8MsCULVF00fHKHWd26OS74aZTKmPN2QzZQZGrKFb9jfxyMXG5lzPUiauxboHbvTGMnTlMAKkZVdXJSkDPZBl5WMORnkUyib5klNI4ylkHVmnPRfESppkTPemjtU3ySfnFD5lQOw5jwzABLSNDv0vp6Z1EQstKZ3t2X7RRBQ4M/o7iks6hFXgYQ59y6uti5IAq9chRuCAHq+Q2Nv7MTKnnziRgjqlR26BredfA5QyVyOYJRwtZxeVo9s0Tsg3EuzfU02Uv1Fw2L8ydyi0Kn682wsv7ffPSKtjJnXRhtpCcVXdaTjfgxTyT4ElsPN4x8kgv4H+rVc2xcNoFEn0A/uyIk/ncwPtaMhySfEArHGIz8+vbVtOlWquM+JopsXKbjIyf9zlhiQ/U8/mCA0/djGWLJFVva4dBM4ewECBu5ogCOGoFKLmLCTRsoN+KAaG5UttcYleBgA76x89KSH2G8OzB/CZfvj0uLbzFfyM85VCuDQ2mkAQBokVhBTmSwjVGl1Q2wg="
+    secure: SAJs8lpQBhFqmK/47MUhABD70R+lz+jkjeiewrvayPW1RYDSuZRSE2SxVSeEumSkOPlfVAEe3f3pIVmMODgGKf6EVpuU7ssCwXPb/VT5tWoqI+E3Wag3LlAherWI9hxET5m9VQmHeAGnKMZ3SqTb9YQrCPOAtoMWk7lwHDNrbRN257cPZUL9Wb7sQNhvFmq6/knbThx36Qns2WMlqh8huJVuZnny4AYs4N1dZAuixnz5ympbqK1eVc9Uf4qtNsAvSKTSf5Ar7I85jBTFXZae7K+/bjAOMiz2K8iVOfXXwJxE8gbhuF/vh4LpO/25NHePWMXpPN4VeqehtIto/fGJpjv7m9o58d2oEjXvGvIoa6RXV2tY63VdtqbV8KBEJNX8kqloCk3qKqCxp3ufbzZiNUqMlR3KfNmw4SGz7bLBsazMQ0DPc22SR6dNmsgy/OsPAQ4crujqS2K5rU3ovwq0/Wjl00JPbDEorVpcb9h3YNS/f7Pz3LCs1yDVNlWMX3UeOpFOQINoOm3woGYkE9vvcY2T3+f46f5hxyQx+R/p1f7qIwKZLA4fGi+FTw8v4VYrxElG/mkNVuItfxybbdFPlXyhnBFh4xTAespc8uX8duH9FOfSOOupTDytgJKBm0E4Fr6u+OCTME6dM20PbqT65+0ttNeQQAC3rQcsBEFx8Xk=
+  skip_cleanup: true
   file_glob: true
   file: "*.iso"
-  skip_cleanup: true
+  on:
+    repo: nicoulaj/archiso
 
 notifications:
   email: false
   irc:
     channels:
-    - "chat.freenode.net#nicoulaj"
+      - "chat.freenode.net#nicoulaj"
     on_success: never
     on_failure: change
     on_start: never
     use_notice: true
     template:
-    - "%{repository}/%{branch}#%{build_number}: %{message} | changes : %{compare_url} | build : %{build_url}"
+      - "%{repository}/%{branch}#%{build_number}: %{message} | changes : %{compare_url} | build : %{build_url}"
