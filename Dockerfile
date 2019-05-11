@@ -1,5 +1,4 @@
 FROM archlinux/base
-MAINTAINER Julien Nicoulaud <julien.nicoulaud@gmail.com>
 
 RUN mkdir /run/shm && \
     pacman-key --init && \

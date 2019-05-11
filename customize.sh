@@ -8,7 +8,7 @@ links
 dfc
 ncdu
 fzf
-rip-grek
+rip-grep
 ack
 i7z
 htop

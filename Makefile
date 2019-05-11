@@ -1,7 +1,7 @@
 SHELL = /bin/bash
-IMAGE = nicoulaj/archiso-builder
-CONTAINER = nicoulaj-archiso-builder
-VM = archiso-test
+IMAGE = custom-archiso-builder
+CONTAINER = custom-archiso-builder
+VM = custom-archiso-test
 
 all: clean build
 

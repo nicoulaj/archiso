@@ -2,11 +2,6 @@ sudo: required
 
 language: minimal
 
-addons:
-  apt:
-    packages:
-      - docker-ce
-
 services:
   - docker
 
