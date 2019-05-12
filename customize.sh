@@ -32,11 +32,12 @@ diff-so-fancy
 EOF
 
 # build and add AUR packages
-mkdir /archiso-aur-repo
+repo=${PWD}/var/lib/pacman/aur
+mkdir -p ${repo}
 cat << EOF >> pacman.conf
-[archiso-aur-repo]
+[AUR]
 SigLevel = Optional TrustAll
-Server = file:///archiso-aur-repo
+Server = file://${repo}
 EOF
 mkdir /.{cache,terminfo} && chmod -R o+rw /.{cache,terminfo}
 for package in fbterm-git; do
@@ -46,11 +47,11 @@ for package in fbterm-git; do
   chmod -R o+rw ${package}
   cd ${package}
   su nobody -s /bin/sh -c 'makepkg -s --noconfirm --noprogressbar'
-  mv -v *.pkg.* /archiso-aur-repo/
+  mv -v *.pkg.* ${repo}/
   popd
   echo ${package} >> packages.x86_64
 done
-repo-add /archiso-aur-repo/archiso-aur-repo.db.tar.gz /archiso-aur-repo/*.pkg.*
+repo-add ${repo}/AUR.db.tar.gz ${repo}/*.pkg.*
 
 # enable pacman colors
 sed -i 's|^#Color|Color|' pacman.conf
