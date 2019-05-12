@@ -7,11 +7,11 @@ RUN mkdir /run/shm && \
     reflector --verbose --latest 20 --sort rate --save /etc/pacman.d/mirrorlist && \
     pacman --noconfirm -Syu && \
     pacman --noconfirm -Sy --needed \
+      base-devel \
+      perl \
+      automake \
       git \
-      make \
       curl \
-      grep \
-      file \
       arch-install-scripts \
       squashfs-tools \
       libisoburn \
@@ -19,6 +19,7 @@ RUN mkdir /run/shm && \
       dosfstools \
       lynx \
       mkinitcpio-nfs-utils && \
+    echo 'nobody ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers && \
     git clone --depth 1 git://projects.archlinux.org/archiso.git && \
     make -C archiso install
 
