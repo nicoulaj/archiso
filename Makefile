@@ -18,7 +18,8 @@ build: clean
 		--name=$(CONTAINER) \
 		--privileged \
 		--mount type=bind,source=${PWD},target=/usr/share/archiso/configs/releng/out \
-		$(IMAGE) \
+		$(IMAGE) && \
+		mv archlinux-*.iso archlinux.iso \
 	) | tee build.log
 
 test:
@@ -30,7 +31,7 @@ test:
 	VBoxManage storagectl $(VM) --name "SATA Controller" --add sata --controller IntelAHCI
 	VBoxManage storageattach $(VM) --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium $(VM).vdi
 	VBoxManage storagectl $(VM) --name "IDE Controller" --add ide
-	VBoxManage storageattach $(VM) --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium *.iso
+	VBoxManage storageattach $(VM) --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium archlinux.iso
 	VBoxManage modifyvm $(VM) --ioapic on
 	VBoxManage modifyvm $(VM) --boot1 dvd --boot2 disk --boot3 none --boot4 none
 	VBoxManage modifyvm $(VM) --memory 1024 --vram 128

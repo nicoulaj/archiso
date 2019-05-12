@@ -18,19 +18,20 @@ branches:
 script: make build
 
 before_deploy:
+  - export TRAVIS_TAG=latest
   - git config --local user.name "${CI_USER_NAME}"
   - git config --local user.email "${CI_USER_MAIL}"
   - git remote add origin-ci https://${CI_USER_NAME}:${CI_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git &>/dev/null
-  - git fetch --tags --quiet origin-ci
-  - git tag -l | xargs -n 1 git push --quiet --delete origin-ci
-  - export TRAVIS_TAG=$(date +'%Y-%m-%d_%H-%M-%S')
+  - git push --quiet origin-ci :${TRAVIS_TAG}
+  - git tag -d ${TRAVIS_TAG}
   - git tag $TRAVIS_TAG
-  - git remote rm origin-ci &>/dev/null
 
 deploy:
   provider: releases
   api_key: "${CI_TOKEN}"
-  body: "${TRAVIS_BUILD_WEB_URL}"
+  body:|
+    $(date +'%Y-%m-%d_%H-%M-%S')
+    ${TRAVIS_BUILD_WEB_URL}
   skip_cleanup: true
   overwrite: true
   file_glob: true
