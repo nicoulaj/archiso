@@ -6,6 +6,7 @@ VM = custom-archiso-test
 all: clean build
 
 clean:
+	sudo rm -f *.{log,vdi,iso}
 	docker kill $(CONTAINER) || true
 	docker rm $(CONTAINER) || true
 	docker image rm $(IMAGE) || true
