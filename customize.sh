@@ -25,6 +25,9 @@ neovim
 zsh-autosuggestions
 zsh-history-substring-search
 zsh-syntax-highlighting
+source-highlight
+grc
+diff-so-fancy
 EOF
 
 # enable pacman colors
