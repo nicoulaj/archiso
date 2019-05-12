@@ -16,7 +16,7 @@ script: make build
 before_deploy:
   - git config --local user.name "${CI_USER_NAME}"
   - git config --local user.email "${CI_USER_MAIL}"
-  - git remote add origin-ci https://${CI_TOKEN}@${TRAVIS_REPO_SLUG}.git &>/dev/null
+  - git remote add origin-ci https://${CI_TOKEN}@github.com:${TRAVIS_REPO_SLUG}.git &>/dev/null
   - git fetch --tags --quiet origin-ci
   - git tag -l | xargs -n 1 git push --quiet --delete origin-ci
   - export TRAVIS_TAG=$(date +'%Y-%m-%d_%H-%M-%S')
