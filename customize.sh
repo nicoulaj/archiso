@@ -7,7 +7,7 @@ sed -i '/grml-zsh-config/d' packages.x86_64
 cat << EOF >> packages.x86_64
 pacman-contrib
 pkgfile
-links
+elinks
 dfc
 ncdu
 fzf
