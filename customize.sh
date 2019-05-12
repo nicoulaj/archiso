@@ -10,6 +10,7 @@ pkgfile
 elinks
 dfc
 ncdu
+tmux
 fzf
 ack
 i7z
@@ -36,8 +37,8 @@ sed -i 's|^#Color|Color|' pacman.conf
 # set keymap
 echo KEYMAP=fr > airootfs/etc/vconsole.conf
 
-# dotfiles
-curl -Ls https://github.com/nicoulaj/dotfiles/archive/master.tar.gz | tar xvz -C airootfs/root/ --strip-components=1
+# set timezone
+sed -i 's|zoneinfo/UTC|zoneinfo/Europe/Paris|' airootfs/root/customize_airootfs.sh
 
-# FIXME lz4 compression for initramfs
-# sed 's|#COMPRESSION="lz4"|COMPRESSION="lz4"|' airootfs/etc/mkinitcpio.conf
+# add dotfiles
+curl -Ls https://github.com/nicoulaj/dotfiles/archive/master.tar.gz | tar xvz -C airootfs/root/ --strip-components=1
