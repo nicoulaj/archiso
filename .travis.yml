@@ -7,26 +7,30 @@ services:
 
 env:
   global:
-  - secure: nKTTuzV056RkYy6o/17KxBrLnoS0u623pcWKPWqEeicL5VgJmHtl8bPfGAM+NWm8thu+HIuoxl9Mk2AZxZNrotR0a+e0bu4TMvSHDTH+Z1EA5Xd+Mp/0Sgje+nJUCN2fiw7B3ap6O+Eg6m8V/qoiCajxGGCtS8vlls3MndLgnI0jF3VNUc0nytqcQK01v/y3Tr6D7eni6VUKP+hNe1p1vWl/J9JNAJVG64LkY+6Q7eiXZXmUIt5wUhVF22CkNHy409v+ot3/HB6eqIM/KC7C1g0rWqJwA1XnU03ShMncNckI0aJ+tPNFqNpLgiIpLMc+Y+DTMiAsLgmAGhfsEa2o4ZUbXpTLU7cWpmqmlvXupinpdKA2A2pg1huaSWqqcdxtS62estt1+7fYYhL26kFYZD1RpQ+Af3r9J5sSSIV4IafiyxZXCTB4pyCHdiKB20CZglPUYceYigijE15/jUwtQkXG+tJyClUsLBsYAtIXEtVDJy3c+t9y7T/OkUaBCnbV+i4ZHzid6e9GGNcfPlH7XgPOI7RN5vqvw/zOOhikSGNUFUTJH0XBtyrvK8S7RlXysqOskDlVJHH0sXakiSnPEhbF5l75yHmEMmc8qH/KfZseNDDqiHhQCwJFv1LXhXejL80nVgGlBvb63XxHiMmCd3iafreY/cBDFmbA812MWFo=
-  - secure: h3wszC9A/HeATWWjGJ5+wDoo6t0rJukAyoa6S09SCWU1BvCqXBzxl6rno0CJqGsqTKgIE8bvKwGHMtl3FCdcs9YpSfktRkdjkwDi0tNtYfB4kjTSBhpd5vCqUX96bK90g8Y7kJCvTyy/H+I+DqVZN4ChYf61GI63lPvIQVcceHqi2Tw8qVum4b19fUSnZtOuD4DrEwni4rxyIi0zq7svpvPKoZNGAXlqCTdbtEs9mpU6StvHlSq+UdqgU+xGwicKEMq3m/aNZIHFlhtFhl+AqQIwHSxEF0WoQ7KI88GdgDSzQcMX7vu5XR1k3w1s5vfQaS0j95sSDdUNd3bMUEYchGCSaYXayoBhJdeYRvqbGSbjoIIe48Dp8FblpbB81W9GXkGzTpYSQiGV+0RYK+p6cw+0r0OdJqJJpC1pd6LNXzVqEQ2Iga6tWtWTSTMiCCom4F6Ji9x4b8noKoRUkjR8XjAHWhfHiJRrMpylKN0Rdb2jJIZksfANejfwGBq5yB7lAwfENWZY5kiW6T7P8lu0xBLlUiv6vZXfaoCS9VX3xajEUkn3Bo+bbHUZt3J0HBMoio4YSiPct+fmTRqAOPQjYEL6Ysm4IXQ5wWvGnbq3xfjBtV6b36coPQX69gLKpm6PfsPhfYifh46Etv6WtOYJ+sb9M6EMLOSOslMBCtTddTA=
+  - secure: D8wWA24gXjNa1bi4Gt2U5Iu3cp2AcL9FS6nDIxDDD0F7qi2gC3uZpdzfA8667LGOeLBJ6eTpUHiQ0fOm9EhTO7qJLk4RQjN3OrQwvtXWfNxb6jFuOtrwySDSbcdxvuMf/MugRAXN8egDpyhrSrJGPOy8+L9FEBgfT+yS3U5qXyb/lSJNnx1HCJ/3vy0TY5qbHO14UilN5gzty6SGSjUIVfA+0pta9LCrC9/Nl4ZsXhtKxFbdiMZZYClaODujIulHiNgcFJpDR/8OSE2g9MhR/omJLCPmrbEe5UJG8SwUr3Wg+RAa27UrtzgM46TMKwajklJxUDTmfWvWGlg31oSMMscLmupylU+Ls1BcqN9aNulxpmtEx1jwGQubD9pxh/zIL655f0DRgmDIA/SjEUnAO2zys1Z/R0Vu/p9Pjb8GEKUjj54z1xGrKzphBvuxsgnW8IhJtttqdAz9GUzNDRSvdN2TJCyzy5JSLfv+JsFaztSBRnnu8HEwpKDo28Qew1nO+91RPd5W36iR/2XkJqq6hJdl4NnjAc7RZ0BOPrbVqv9HdH19CTso9KoszWaAfz/O3PeB8QvSJDlwObhyh7GPwNQsC24Y0KHvEagoK+5fhzR0x9WMHTpJdUHzh3z2eVjbysVqe2TyYa8y3UuN+Qlale1I7zNNg6EyY0+utHN1dlg=
+  - secure: c6IBNcbJp0G3OZie/bwF4SzAtXieh6/N8iy+J3w6La3dX+bYpslV1/jwFR0ej25BlAWdeb9YumnYBPzuet5ISdybJc2GoSANO/vFzphK9/U3m4da3OElRLAkY14hIQVkVz4SrkNxzHssdI2YEjvLF6M8THwlqHwTpcRtNXJJHUHBxQAPble98Ikv5ErQz3d6D8p8+zqp8biP6PEKEpN6W6s0tM+YDuu4EeU8aN0jjsu+EndVO8VWYCNUHHk7yqOikXokS+zBb3G3c73nCL43fMtXPRzjMmPQXqJNi29iOrJcpjIdRqoFLPwCMs2B6YdslDVrQSE+h4W9S4n1Ygqy+/Kz1u5adUGChDrIoNUCSoPosA/TFlya6nD7TeN4REaaQpUlBIquxqhd6Oyj0v5MSRyrF8UH01B3AhpAntbzguwG7vZXx2I28IGq6p4lTpc8DYu8N27/EOSy1n/+v0bqpksNM6Dm2BVmQuVckNwUVbiCXXWIQsYRRFoW6XOwVyq+awTQJU+MQJBwszdlqW8PylCFSueM1IF2au4L9Sy8/dFXux5OgBM4v7t6xczTFf9OZNrP7+v3na5xlMwZX/od1PGzzcd8fnXa56yjlcJIXgYoYXbVUuuo+0lLSkdHaZ38ZFBYekCNQifrZn4d/tEwRgdQDuFG2la8FQNsud9Le00=
+  - secure: dF0eKHteV6DAttJIScILWzF/NBHF2gsUmKXjQVMto/kcDW4rqrgKMvZ4A59ytfOsRLgg2tjjwp7nfr/z8C6LNtrQOl1Cr0w2j6I1LB7KNucrfWmqcMQ+4+WYLcozUznX16LuOnou/goCtQJRtFP/vPPYFfC1kB6GkqR78rNt+CDQkQdJwDwsjFrzA+Qwy5IZnNWcQ+MA12sNI1wJ8Vyl1BYnf9fSUeN7gNKPr/fGox+CSg9Q9Zcu1+sbkXSpljlbkYTbg/PrpNCyWKM+WG8cDT9L0aP+/y9kKnCE2X1pNyxlrMUAquJmPtSaUBmJJr1a4JqEfAo9jyFsWOgVz89xgW/36o/Xk1vC4ESjBl/mpoWwXcYaMwuAuBz+JSex6b07vd7E7G2G1Y70dZBf1BmNMMgPKMC19kkpN6FbBlpv8uz5JuRQKZeH0p4anDKPqh14W18wHPGZv7L/V1pRomTo25OZgnKJXxhtgSWBuG8oxslYa/w/9wUUDhEP8aZyeRfrPc5eQb3TQD/ngzyi7NxmxBg+RiELF4UwwAoD1RnRubUdUG8Hz0orvS14dgrx/vUn3vPEyvdnnpvLfH/gPS4Gv3pRrz11KQV3TzFyfQbj1vxk2ZEHbdgRafnuCPuBBKo+ZaPe04Jxq4fi/jFYmQHjW/sJGAJs9+FX4XDKlADvHq8=
 
 script: make build
 
 before_deploy:
-  - git config --local user.name "${TAG_USER_NAME}"
-  - git config --local user.email "${TAG_USER_MAIL}"
+  - git config --local user.name "${CI_USER_NAME}"
+  - git config --local user.email "${CI_USER_MAIL}"
+  - git remote add origin-ci https://${CI_TOKEN}@${TRAVIS_REPO_SLUG}.git &>/dev/null
+  - git fetch --tags --quiet origin-ci
+  - git tag -l | xargs -n 1 git push --quiet --delete origin-ci
   - export TRAVIS_TAG=$(date +'%Y-%m-%d_%H-%M-%S')
   - git tag $TRAVIS_TAG
+  - git remote rm origin-ci &>/dev/null
 
 deploy:
   provider: releases
-  api_key:
-    secure: SAJs8lpQBhFqmK/47MUhABD70R+lz+jkjeiewrvayPW1RYDSuZRSE2SxVSeEumSkOPlfVAEe3f3pIVmMODgGKf6EVpuU7ssCwXPb/VT5tWoqI+E3Wag3LlAherWI9hxET5m9VQmHeAGnKMZ3SqTb9YQrCPOAtoMWk7lwHDNrbRN257cPZUL9Wb7sQNhvFmq6/knbThx36Qns2WMlqh8huJVuZnny4AYs4N1dZAuixnz5ympbqK1eVc9Uf4qtNsAvSKTSf5Ar7I85jBTFXZae7K+/bjAOMiz2K8iVOfXXwJxE8gbhuF/vh4LpO/25NHePWMXpPN4VeqehtIto/fGJpjv7m9o58d2oEjXvGvIoa6RXV2tY63VdtqbV8KBEJNX8kqloCk3qKqCxp3ufbzZiNUqMlR3KfNmw4SGz7bLBsazMQ0DPc22SR6dNmsgy/OsPAQ4crujqS2K5rU3ovwq0/Wjl00JPbDEorVpcb9h3YNS/f7Pz3LCs1yDVNlWMX3UeOpFOQINoOm3woGYkE9vvcY2T3+f46f5hxyQx+R/p1f7qIwKZLA4fGi+FTw8v4VYrxElG/mkNVuItfxybbdFPlXyhnBFh4xTAespc8uX8duH9FOfSOOupTDytgJKBm0E4Fr6u+OCTME6dM20PbqT65+0ttNeQQAC3rQcsBEFx8Xk=
+  api_key: "${CI_TOKEN}"
   skip_cleanup: true
   file_glob: true
   file: "build.log"
   file: "*.iso"
-  body: $TRAVIS_BUILD_WEB_URL
+  body: "${TRAVIS_BUILD_WEB_URL}"
   on:
     repo: nicoulaj/archiso
 
