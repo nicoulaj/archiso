@@ -1,11 +1,26 @@
 #!/bin/bash
 
+# add repos
+aur_repo=${PWD}/var/lib/pacman/aur
+cat << EOF >> pacman.conf
+[archzfs]
+SigLevel = Optional TrustAll
+Server = http://archzfs.com/\$repo/x86_64
+
+[AUR]
+SigLevel = Optional TrustAll
+Server = file://${aur_repo}
+EOF
+
 # remove packages
 sed -i '/grml-zsh-config/d' packages.x86_64
 
 # add packages
 cat << EOF >> packages.x86_64
+archzfs-linux
+zfs-linux-headers
 pacman-contrib
+terminus-font
 pkgfile
 elinks
 dfc
@@ -32,13 +47,7 @@ diff-so-fancy
 EOF
 
 # build and add AUR packages
-repo=${PWD}/var/lib/pacman/aur
-mkdir -p ${repo}
-cat << EOF >> pacman.conf
-[AUR]
-SigLevel = Optional TrustAll
-Server = file://${repo}
-EOF
+mkdir -p ${aur_repo}
 mkdir /.{cache,terminfo} && chmod -R o+rw /.{cache,terminfo}
 for package in fbterm-git; do
   pushd $PWD
@@ -47,20 +56,23 @@ for package in fbterm-git; do
   chmod -R o+rw ${package}
   cd ${package}
   su nobody -s /bin/sh -c 'makepkg -s --noconfirm --noprogressbar'
-  mv -v *.pkg.* ${repo}/
+  mv -v *.pkg.* ${aur_repo}/
   popd
   echo ${package} >> packages.x86_64
 done
-repo-add ${repo}/AUR.db.tar.gz ${repo}/*.pkg.*
+repo-add ${aur_repo}/AUR.db.tar.gz ${aur_repo}/*.pkg.*
 
 # enable pacman colors
 sed -i 's|^#Color|Color|' pacman.conf
 
-# set keymap
-echo KEYMAP=fr > airootfs/etc/vconsole.conf
-
 # set timezone
 sed -i 's|zoneinfo/UTC|zoneinfo/Europe/Paris|' airootfs/root/customize_airootfs.sh
+
+# set keymap and console font
+cat << EOF >  airootfs/etc/vconsole.conf
+KEYMAP=fr
+FONT=ter-116n
+EOF
 
 # add dotfiles
 curl -Ls https://github.com/nicoulaj/dotfiles/archive/master.tar.gz | tar xvz -C airootfs/root/ --strip-components=1
