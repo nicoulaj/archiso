@@ -15,12 +15,11 @@ branches:
   only:
   - master
 
-before_install:
-  - openssl aes-256-cbc -K $encrypted_326c4abca8b1_key -iv $encrypted_326c4abca8b1_iv -in key.gpg.enc -out key.gpg -d
-
 script: make build
 
 before_deploy:
+  - openssl aes-256-cbc -K $encrypted_326c4abca8b1_key -iv $encrypted_326c4abca8b1_iv -in key.gpg.enc -out key.gpg -d
+  - gpg --import key.gpg
   - ls *.iso | xargs -I {} gpg --output {}.asc --detach-sign {}
   - export TRAVIS_TAG=latest
   - git config --local user.name "${CI_USER_NAME}"
