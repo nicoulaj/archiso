@@ -21,7 +21,7 @@ before_install:
 script: make build
 
 before_deploy:
-  - ls *.iso | xargs -I {} gpg --output {}.asc --sign {}
+  - ls *.iso | xargs -I {} gpg --output {}.asc --detach-sign {}
   - export TRAVIS_TAG=latest
   - git config --local user.name "${CI_USER_NAME}"
   - git config --local user.email "${CI_USER_MAIL}"
